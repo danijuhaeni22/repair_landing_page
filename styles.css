@@ -131,17 +131,28 @@
    DARK – FAQ contrast fix
    =========================== */
 .dark #faq h2{color:#f8fafc;} /* judul FAQ lebih terang */
-
 .dark .accordion{border-color:#334155;} /* perjelas border */
-
 .dark .acc-btn{
   color:#e8eef5;                          /* teks lebih kontras */
   background:rgba(148,163,184,.06);       /* latar halus agar tidak “nyaru” */
 }
 .dark .acc-btn:hover{background:rgba(148,163,184,.12);}
 .dark .accordion.is-open .acc-btn{background:rgba(148,163,184,.14);}
-
 .dark .acc-btn:focus{
   outline:none;
   box-shadow:0 0 0 2px rgba(59,130,246,.55); /* fokus keyboard jelas */
+}
+
+/* ===========================
+   DARK – form readability fix
+   =========================== */
+.dark .label{color:#e5e7eb;}               /* label lebih terang */
+.dark .input{color:#f8fafc;}               /* teks yang diketik (memastikan kontras) */
+.dark .input::placeholder{
+  color:#cbd5e1;                           /* placeholder terbaca */
+  opacity:.9;
+}
+.dark #hpHint{
+  color:#cbd5e1;                           /* hint di bawah input */
+  opacity:.85;
 }
