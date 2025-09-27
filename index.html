@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="id" class="dark scroll-smooth">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>FixRight Service — Servis Handphone Cepat & Tepercaya</title>
+    <meta name="description" content="FixRight Service: Jasa reparasi handphone cepat & tepercaya (juga melayani laptop). Gratis diagnosa, garansi 30 hari. Alamat: Jl. Contoh No. 123, Jakarta." />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="FixRight Service — Servis Handphone & Laptop" />
+    <meta property="og:description" content="Servis Handphone Cepat & Tepercaya — Juga Melayani Laptop. Gratis diagnosa & garansi 30 hari." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://example.github.io/fixright/" />
+    <meta property="og:image" content="assets/images/hero.png" />
+    <link rel="canonical" href="https://example.github.io/fixright/" />
+    <meta name="theme-color" content="#0ea5e9" />
+    <meta name="color-scheme" content="dark" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/images/favicon.png" sizes="32x32" />
+    <link rel="apple-touch-icon" href="assets/images/favicon.png" />
+    <link rel="shortcut icon" type="image/png" href="assets/images/favicon.png" />
+
+    <!-- Tailwind (dark via class, tapi kita pakai dark-only) -->
+    <script>
+      window.tailwind = window.tailwind || {};
+      window.tailwind.config = { darkMode: "class" };
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+
+  <body class="dark:bg-slate-950 dark:text-slate-100">
+    <a href="#beranda" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50 px-3 py-2 rounded-md bg-blue-600 text-white">Lewati ke konten</a>
+
+    <!-- Navbar -->
+    <header class="sticky top-0 z-40 border-b border-slate-800/70 bg-slate-900/60 backdrop-blur">
+      <nav class="container flex items-center justify-between py-3" aria-label="Utama">
+        <a href="#beranda" class="inline-flex items-center gap-2 font-extrabold text-lg tracking-tight">
+          <svg class="w-6 h-6 text-blue-400" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M4 17l6-6 4 4 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <rect x="3" y="3" width="18" height="18" rx="3" ry="3" stroke="currentColor" stroke-width="2" fill="none"/>
+          </svg>
+          <span>FixRight <span class="text-blue-400">Service</span></span>
+        </a>
+
+        <div class="flex items-center gap-2">
+          <button id="btnMenu" class="md:hidden inline-flex items-center justify-center p-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" aria-expanded="false" aria-controls="mobileNav" aria-label="Buka menu">
+            <svg class="w-6 h-6" viewBox="0 0 24 24" aria-hidden="true" fill="none"><path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          </button>
+          <ul class="hidden md:flex items-center gap-1 lg:gap-2 text-sm">
+            <li><a class="nav-link" href="#beranda">Home</a></li>
+            <li><a class="nav-link" href="#layanan">Layanan</a></li>
+            <li><a class="nav-link" href="#testimoni">Testimoni</a></li>
+            <li><a class="nav-link" href="#kontak">Kontak</a></li>
+          </ul>
+        </div>
+      </nav>
+
+      <!-- Mobile menu -->
+      <div id="mobileNav" class="md:hidden max-h-0 overflow-hidden transition-[max-height] duration-300 bg-slate-900/90 backdrop-blur">
+        <div class="container pb-3">
+          <ul class="grid gap-2 text-sm">
+            <li><a class="nav-link block" href="#beranda">Home</a></li>
+            <li><a class="nav-link block" href="#layanan">Layanan</a></li>
+            <li><a class="nav-link block" href="#testimoni">Testimoni</a></li>
+            <li><a class="nav-link block" href="#kontak">Kontak</a></li>
+          </ul>
+        </div>
+      </div>
+    </header>
+
+    <main id="beranda" class="scroll-mt-24">
+      <!-- Hero -->
+      <section class="container py-10 sm:py-14 lg:py-20">
+        <div class="grid lg:grid-cols-2 gap-10 lg:gap-12 items-center">
+          <div class="max-w-2xl">
+            <span class="inline-flex items-center gap-2 text-[11px] sm:text-xs font-semibold tracking-wide uppercase px-3 py-1 rounded-full bg-emerald-500/15 text-emerald-300 ring-1 ring-emerald-400/20">Garansi 30 Hari</span>
+            <h1 class="mt-4 text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-tight">
+              Servis Handphone Cepat &amp; Tepercaya —
+              <span class="text-blue-400">Juga Melayani Laptop</span>
+            </h1>
+            <p class="mt-4 text-base sm:text-lg text-slate-300 leading-relaxed">
+              “FixRight Service” menangani ganti layar, baterai, kamera, port, water damage, dan servis laptop (keyboard, baterai, thermal, OS).
+              Gratis diagnosa di tempat, proses transparan.
+            </p>
+            <div class="mt-6 flex flex-wrap gap-3">
+              <a href="#kontak" class="btn-primary">
+                <svg class="w-5 h-5 -ml-1" viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M20 12a8 8 0 0 1-11.94 6.94L4 20l1.06-4.06A8 8 0 1 1 20 12zM7.5 18.5 9.2 18a6.5 6.5 0 1 0-3.2-3.2l-.5 1.7 2 2z"/></svg>
+                Chat via WhatsApp
+              </a>
+              <a href="#kontak" class="btn-secondary">Buat Janji</a>
+            </div>
+
+            <div class="mt-6 flex flex-wrap gap-2.5 text-sm">
+              <span class="badge">Gratis Diagnosa</span>
+              <span class="badge">Suku Cadang Original*</span>
+              <span class="badge">Estimasi Cepat</span>
+            </div>
+          </div>
+
+          <!-- Hero image (object-cover + overlay) -->
+          <div class="relative">
+            <div class="rounded-2xl ring-1 ring-white/10 overflow-hidden bg-gradient-to-tr from-slate-800/50 to-slate-900/60">
+              <div class="relative w-full aspect-[16/10] sm:aspect-[16/9]">
+                <img
+                  src="assets/images/hero.png"
+                  alt="Teknisi FixRight sedang memperbaiki perangkat"
+                  loading="lazy"
+                  decoding="async"
+                  width="1600"
+                  height="900"
+                  class="absolute inset-0 w-full h-full object-cover"
+                />
+                <div class="pointer-events-none absolute inset-0 bg-gradient-to-tr from-white/10 to-transparent"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="container"><hr class="my-6 border-slate-800/70" /></div>
+
+      <!-- Layanan -->
+      <section id="layanan" class="scroll-mt-24 py-10 sm:py-14 bg-slate-900">
+        <div class="container">
+          <header class="mb-6 sm:mb-8">
+            <h2 class="text-2xl sm:text-3xl font-bold tracking-tight">Layanan</h2>
+            <p class="mt-2 text-slate-300">Handphone (utama) &amp; Laptop (sampingan).</p>
+          </header>
+
+          <div class="grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
+            <!-- kartu layanan (tetap seperti sebelumnya) -->
+            <article class="card"><div class="icon">
+              <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="5" y="2" width="14" height="20" rx="2" stroke="currentColor" stroke-width="2"/><path d="M12 18h.01" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            </div><h3 class="card-title">Ganti Layar</h3><p class="card-desc">Layar retak/ghost touch. Kualitas setara OEM.</p><p class="card-meta">Durasi: ± 2–3 jam</p><a href="#harga" class="card-cta">Detail</a></article>
+
+            <article class="card"><div class="icon">
+              <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="2" y="7" width="18" height="10" rx="2" stroke="currentColor" stroke-width="2"/><path d="M22 10v4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            </div><h3 class="card-title">Ganti Baterai</h3><p class="card-desc">Drop cepat, health menurun, auto-shutdown.</p><p class="card-meta">Durasi: ± 30–60 menit</p><a href="#harga" class="card-cta">Detail</a></article>
+
+            <article class="card"><div class="icon">
+              <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="2"/><rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor" stroke-width="2"/></svg>
+            </div><h3 class="card-title">Kamera / Port / Water Damage</h3><p class="card-desc">Perbaikan kamera, port charge, dan penanganan cairan.</p><p class="card-meta">Durasi: ± 1–3 jam</p><a href="#harga" class="card-cta">Detail</a></article>
+
+            <article class="card"><div class="icon">
+              <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor" stroke-width="2"/><path d="M6 10h12M6 14h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            </div><h3 class="card-title">Keyboard / Baterai Laptop</h3><p class="card-desc">Ganti keyset/baterai, bersih cairan.</p><p class="card-meta">Durasi: ± 2–4 jam</p><a href="#harga" class="card-cta">Detail</a></article>
+
+            <article class="card"><div class="icon">
+              <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3v14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M8 13a4 4 0 0 0 8 0" stroke="currentColor" stroke-width="2"/></svg>
+            </div><h3 class="card-title">Thermal &amp; Pembersihan</h3><p class="card-desc">Repaste, cleaning fan/heatsink, kurangi throttling.</p><p class="card-meta">Durasi: ± 2–3 jam</p><a href="#harga" class="card-cta">Detail</a></article>
+
+            <article class="card"><div class="icon">
+              <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2l4 4-4 4-4-4 4-4zM4 14h16v6H4z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div><h3 class="card-title">Instal OS &amp; Driver</h3><p class="card-desc">Instal ulang, driver, optimasi dasar.</p><p class="card-meta">Durasi: ± 1–2 jam</p><a href="#harga" class="card-cta">Detail</a></article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Testimoni (tetap) -->
+      <section id="testimoni" class="scroll-mt-24 py-10 sm:py-14">
+        <div class="container">
+          <header class="mb-6 sm:mb-8 flex items-end justify-between gap-4">
+            <div>
+              <h2 class="text-2xl sm:text-3xl font-bold tracking-tight">Testimoni</h2>
+              <p class="mt-1 text-slate-300">Apa kata pelanggan tentang FixRight Service.</p>
+            </div>
+            <div class="hidden sm:flex items-center gap-2">
+              <button class="carousel-btn" data-dir="prev" aria-label="Sebelumnya">
+                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M15 6l-6 6 6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </button>
+              <button class="carousel-btn" data-dir="next" aria-label="Berikutnya">
+                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </button>
+            </div>
+          </header>
+
+          <div class="t-viewport" aria-roledescription="carousel" aria-label="Testimoni pelanggan" aria-live="polite">
+            <ul class="t-track">
+              <li class="t-card"><figure class="testimonial"><blockquote>“Ganti layar cepat, hasil rapi. Admin responsif!”</blockquote><figcaption>— Rina, Jakarta</figcaption></figure></li>
+              <li class="t-card"><figure class="testimonial"><blockquote>“Laptop overheat jadi normal. Dijelaskan prosesnya.”</blockquote><figcaption>— Dimas, Bekasi</figcaption></figure></li>
+              <li class="t-card"><figure class="testimonial"><blockquote>“Harga sesuai estimasi, selesai tepat waktu. Rekomen!”</blockquote><figcaption>— Lani, Tangerang</figcaption></figure></li>
+              <li class="t-card"><figure class="testimonial"><blockquote>“Ganti baterai 40 menit, mantap pelayanannya.”</blockquote><figcaption>— Arif, Depok</figcaption></figure></li>
+              <li class="t-card"><figure class="testimonial"><blockquote>“Penanganan water damage sigap, data aman.”</blockquote><figcaption>— Maya, Jakarta</figcaption></figure></li>
+              <li class="t-card"><figure class="testimonial"><blockquote>“Teknisi ramah, jelasin estimasi dengan jelas.”</blockquote><figcaption>— Yuda, Bogor</figcaption></figure></li>
+              <li class="t-card"><figure class="testimonial"><blockquote>“Service laptop &amp; repaste, suhu turun jauh.”</blockquote><figcaption>— Nia, Tangerang</figcaption></figure></li>
+              <li class="t-card"><figure class="testimonial"><blockquote>“Harga oke, part original. Recommended.”</blockquote><figcaption>— Bima, Bekasi</figcaption></figure></li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQ -->
+      <section id="faq" class="scroll-mt-24 py-10 sm:py-14 bg-slate-900">
+        <div class="container">
+          <h2 class="text-2xl sm:text-3xl font-bold mb-6 tracking-tight">FAQ</h2>
+          <div class="space-y-3" role="region" aria-label="Pertanyaan yang sering diajukan">
+            <div class="accordion" data-open="false">
+              <button class="acc-btn" aria-expanded="false" aria-controls="faq1" id="acc1">
+                Berapa lama proses servis?
+                <svg class="acc-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+              </button>
+              <div id="faq1" class="acc-panel" role="region" aria-labelledby="acc1">
+                Rata-rata 1–3 jam untuk perbaikan ringan, tergantung antrian &amp; ketersediaan part.
+              </div>
+            </div>
+
+            <div class="accordion" data-open="false">
+              <button class="acc-btn" aria-expanded="false" aria-controls="faq2" id="acc2">
+                Apakah ada garansi?
+                <svg class="acc-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+              </button>
+              <div id="faq2" class="acc-panel" role="region" aria-labelledby="acc2">
+                Ya, garansi servis 30 hari untuk part &amp; jasa tertentu.
+              </div>
+            </div>
+
+            <div class="accordion" data-open="false">
+              <button class="acc-btn" aria-expanded="false" aria-controls="faq3" id="acc3">
+                Lokasi &amp; jam operasional?
+                <svg class="acc-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+              </button>
+              <div id="faq3" class="acc-panel" role="region" aria-labelledby="acc3">
+                Jl. Contoh No. 123, Jakarta. Senin–Sabtu 09.00–20.00.
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Peta -->
+      <section class="scroll-mt-24 py-10 sm:py-14">
+        <div class="container">
+          <h2 class="text-2xl sm:text-3xl font-bold mb-4 tracking-tight">Lokasi</h2>
+          <div class="rounded-2xl overflow-hidden ring-1 ring-slate-700 aspect-[16/9]">
+            <iframe title="Peta FixRight Service" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="w-full h-full" src="https://www.google.com/maps?q=Jl.%20Contoh%20No.%20123%2C%20Jakarta&output=embed"></iframe>
+          </div>
+        </div>
+      </section>
+
+      <!-- Kontak -->
+      <section id="kontak" class="scroll-mt-24 py-10 sm:py-14 bg-slate-900">
+        <div class="container grid lg:grid-cols-2 gap-8">
+          <div>
+            <h2 class="text-2xl sm:text-3xl font-bold tracking-tight">Kontak &amp; Janji Servis</h2>
+            <p class="mt-2 text-slate-300">Hubungi kami: <a class="link" href="tel:+6281200000000">+62 812-0000-0000</a> · <a class="link" href="mailto:support@fixright.id">support@fixright.id</a></p>
+            <div class="mt-4 space-y-1 text-sm">
+              <p>Alamat: Jl. Contoh No. 123, Jakarta</p>
+              <p>Jam: Senin–Sabtu 09.00–20.00</p>
+            </div>
+          </div>
+
+          <form id="contactForm" class="glass rounded-2xl p-6 space-y-4 ring-1 ring-white/10" novalidate>
+            <div>
+              <label class="label" for="nama">Nama</label>
+              <input id="nama" name="nama" type="text" class="input" required autocomplete="name" />
+            </div>
+            <div>
+              <label class="label" for="hp">HP/WA</label>
+              <input
+                id="hp"
+                name="hp"
+                type="tel"
+                inputmode="numeric"
+                pattern="^\d{11,13}$"
+                minlength="11"
+                maxlength="13"
+                placeholder="Contoh: 081234567890"
+                class="input"
+                required
+                aria-describedby="hpHint"
+              />
+              <p id="hpHint" class="text-xs mt-1 opacity-70">Hanya angka, 11–13 digit.</p>
+            </div>
+            <div>
+              <label class="label" for="tipe">Tipe Perangkat</label>
+              <input id="tipe" name="tipe" type="text" class="input" placeholder="Contoh: iPhone 12 / ASUS A455" required />
+            </div>
+            <div>
+              <label class="label" for="masalah">Masalah</label>
+              <textarea id="masalah" name="masalah" class="input min-h-[120px]" required placeholder="Ceritakan keluhannya..."></textarea>
+            </div>
+            <div class="flex flex-wrap gap-3 pt-2">
+              <button type="submit" class="btn-primary">
+                <svg class="w-5 h-5 -ml-1" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M22 2L11 13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M22 2l-7 20-4-9-9-4 20-7z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                Kirim
+              </button>
+            </div>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-slate-800 bg-slate-900/40 backdrop-blur">
+      <div class="container py-10 flex flex-col md:flex-row items-center justify-center gap-40 md:gap-72 xl:gap-96 text-sm">
+        <div class="text-center max-w-sm space-y-1.5">
+          <h3 class="font-semibold mb-3">FixRight Service</h3>
+          <p>Jl. Contoh No. 123, Jakarta</p>
+          <p>Senin–Sabtu 09.00–20.00</p>
+          <p>Tel: <a class="link" href="tel:+6281200000000">+62 812-0000-0000</a></p>
+        </div>
+        <div class="text-center space-y-3">
+          <h3 class="font-semibold">Sosial</h3>
+          <div class="flex items-center justify-center gap-6 md:gap-8">
+            <a class="icon-link" href="#" aria-label="Instagram">
+              <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="2"/>
+                <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="2"/>
+                <circle cx="17.5" cy="6.5" r="1" fill="currentColor"/>
+              </svg>
+            </a>
+            <a class="icon-link" href="#" aria-label="Facebook">
+              <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M15 8h-2a2 2 0 0 0-2 2v2H9v3h2v6h3v-6h2.5l.5-3H14v-1a1 1 0 0 1 1-1h1V8z" stroke="currentColor" stroke-width="2"/>
+              </svg>
+            </a>
+            <a class="icon-link" href="#" aria-label="YouTube">
+              <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M22 12s0-3-1-4-4-1-4-1H7s-3 0-4 1-1 4-1 4 0 3 1 4 4 1 4 1h10s3 0 4-1 1-4 1-4z" stroke="currentColor" stroke-width="2"/>
+                <path d="M10 9l5 3-5 3V9z" fill="currentColor"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="border-t border-slate-800">
+        <div class="container py-5 text-xs opacity-80 text-center">
+          © <span id="year"></span> FixRight Service. All rights reserved.
+        </div>
+      </div>
+    </footer>
+
+    <!-- Floating WhatsApp -->
+    <a href="#kontak" class="fixed z-40 right-4 bottom-4 md:right-6 md:bottom-6 inline-flex items-center gap-2 px-4 py-3 rounded-full shadow-lg bg-green-500 text-white hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-300" aria-label="Buka Form WhatsApp">
+      <svg class="w-5 h-5" viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M20 12a8 8 0 0 1-11.94 6.94L4 20l1.06-4.06A8 8 0 1 1 20 12zM7.5 18.5 9.2 18a6.5 6.5 0 1 0-3.2-3.2l-.5 1.7 2 2z"/></svg>
+      <span class="hidden sm:inline">WhatsApp</span>
+    </a>
+
+    <!-- Toast -->
+    <div id="toast" role="status" aria-live="polite" class="toast hidden">
+      <div id="toastContent" class="toast-content"></div>
+    </div>
+
+    <!-- JSON-LD -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "FixRight Service",
+        "image": "assets/images/hero.png",
+        "address": { "@type": "PostalAddress", "streetAddress": "Jl. Contoh No. 123", "addressLocality": "Jakarta", "addressCountry": "ID" },
+        "telephone": "+62 812-0000-0000",
+        "email": "support@fixright.id",
+        "openingHours": "Mo-Sa 09:00-20:00",
+        "url": "https://example.github.io/fixright/"
+      }
+    </script>
+
+    <script defer src="./main.js"></script>
+  </body>
+</html>
