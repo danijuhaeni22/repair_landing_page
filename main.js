@@ -164,7 +164,7 @@
         `Perangkat: ${fields.tipe.value}\n` +
         `Masalah: ${fields.masalah.value}`;
 
-      const url = `https://wa.me/628974163843?text=${encodeURIComponent(pesanText)}`;
+      const url = `https://wa.me/62859106514143?text=${encodeURIComponent(pesanText)}`;
       window.open(url, "_blank", "noopener");
       showToast("Pesan WhatsApp disiapkan ✅");
       form.reset();
