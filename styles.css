@@ -1,119 +1,71 @@
-/* Container gutters (tetap) */
+/* Container gutters */
 .container{max-width:72rem;margin-inline:auto;padding-inline:1rem}
 @media (min-width:640px){.container{padding-inline:1.5rem}}
 @media (min-width:1024px){.container{padding-inline:2rem}}
 
 :root{
-  --blue-600:#2563eb;--blue-700:#1d4ed8;--blue-500:#3b82f6;--blue-400:#60a5fa;
-  --ring-focus:0 0 0 2px rgba(59,130,246,.66);
-
-  /* variabel hero default (tidak dipakai di dark, tapi aman) */
-  --hero-c1:#e5e7eb;
-  --hero-c2:#f8fafc;
-  --hero-stroke:#0f172a;
+  --primary-600:#0891b2; --primary-700:#0e7490; --primary-500:#06b6d4; --primary-400:#38bdf8;
+  --hp-1:#06b6d4; --hp-2:#38bdf8; --laptop-1:#f59e0b; --laptop-2:#f43f5e;
+  --ring-focus:0 0 0 2px rgba(6,182,212,.66)
 }
-.dark:root{
-  /* DARK mode (tetap) */
-  --hero-c1:#0b1220; --hero-c2:#111827; --hero-stroke:#e5e7eb;
-}
+.dark:root{--hero-c1:#0b1220; --hero-c2:#111827; --hero-stroke:#e5e7eb}
 
-/* Links / Buttons / Badges */
-.nav-link{padding:.5rem .6rem;border-radius:.5rem;color:#0f172a;transition:all .2s}
-.nav-link:hover{color:#0f172a;background:#e2e8f0}
-.dark .nav-link{color:#e2e8f0}.dark .nav-link:hover{background:#1f2937}
+.nav-link{padding:.5rem .6rem;border-radius:.5rem;transition:all .2s;color:#e2e8f0}
+.nav-link:hover{background:#1f2937}
 
 .btn-primary,.btn-secondary{display:inline-flex;align-items:center;gap:.5rem;padding:.6rem 1rem;border-radius:.9rem;transition:all .2s;font-weight:600}
-.btn-primary{background:var(--blue-600);color:#fff}.btn-primary:hover{background:var(--blue-700)}.btn-primary:focus{outline:none;box-shadow:var(--ring-focus)}
-.btn-secondary{background:rgba(148,163,184,.18);color:#0b1220;border:1px solid rgba(100,116,139,.45)}
-.btn-secondary:hover{background:rgba(148,163,184,.28)}
-.dark .btn-secondary{background:#1f2937;color:#f1f5f9;border-color:#334155}
-.dark .btn-secondary:hover{background:#263045}
+.btn-primary{background:linear-gradient(135deg,var(--primary-600),var(--primary-500));color:#fff;box-shadow:0 6px 20px rgba(6,182,212,.18)}
+.btn-primary:hover{background:linear-gradient(135deg,var(--primary-700),var(--primary-600));box-shadow:0 8px 26px rgba(6,182,212,.24)}
+.btn-primary:focus{outline:none;box-shadow:var(--ring-focus)}
+.btn-secondary{background:rgba(148,163,184,.14);color:#f1f5f9;border:1px solid rgba(100,116,139,.42)}
+.btn-secondary:hover{background:rgba(148,163,184,.22)}
 
-.badge{
-  display:inline-flex;align-items:center;gap:.25rem;padding:.3rem .7rem;border-radius:9999px;
-  font-size:.75rem;background:rgba(148,163,184,.18);color:#0f172a;border:1px solid rgba(100,116,139,.45)
-}
-.dark .badge{background:#0f172a;color:#e2e8f0;border-color:#334155}
+.badge{display:inline-flex;align-items:center;gap:.25rem;padding:.3rem .7rem;border-radius:9999px;font-size:.75rem;color:#e2e8f0;border:1px solid rgba(100,116,139,.35);background:linear-gradient(135deg,rgba(148,163,184,.18),rgba(148,163,184,.08))}
 
-/* Cards / Steps / Testimonial */
-.card{
-  border-radius:1.1rem;padding:1.25rem;background:#ffffff;
-  border:1px solid rgba(2,6,23,.15);
-  box-shadow:0 1px 2px rgba(2,6,23,.06);
-  transition:transform .12s ease, box-shadow .2s, border-color .2s
-}
-.card:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(2,6,23,.14)}
-.dark .card{background:#0f172a;border-color:#1f2937;box-shadow:0 1px 2px rgba(0,0,0,.15)}
+.card{border-radius:1.1rem;padding:1.25rem;background:#0f172a;border:1px solid #1f2937;box-shadow:0 1px 2px rgba(0,0,0,.15);transition:transform .12s ease, box-shadow .2s, border-color .2s}
+.card:hover{transform:translateY(-2px);box-shadow:0 12px 32px rgba(0,0,0,.35)}
+.card .icon{width:2.5rem;height:2.5rem;display:grid;place-items:center;border-radius:.8rem;margin-bottom:.75rem;color:#0b1220;background:linear-gradient(135deg,var(--hp-1),var(--hp-2));box-shadow:0 6px 18px rgba(56,189,248,.28)}
+#layanan .card:nth-child(n+4) .icon{background:linear-gradient(135deg,var(--laptop-1),var(--laptop-2));color:#111827;box-shadow:0 6px 18px rgba(244,63,94,.28)}
+.card-title{font-weight:700;font-size:1.05rem;color:#e5e7eb}
+.card-desc{margin-top:.25rem;font-size:.9rem;color:#cbd5e1}
+.card-meta{margin-top:.5rem;font-size:.78rem;opacity:.8;color:#cbd5e1}
+.card-cta{margin-top:.75rem;font-size:.9rem;font-weight:600;color:var(--primary-400);text-decoration:none}
+.card-cta:hover{color:#bae6fd}
 
-.card .icon{width:2.5rem;height:2.5rem;display:grid;place-items:center;border-radius:.8rem;margin-bottom:.75rem;background:rgba(59,130,246,.14);color:var(--blue-600)}
-.dark .card .icon{color:var(--blue-400)}
-.card-title{font-weight:700;font-size:1.05rem;color:#0f172a}
-.card-desc{margin-top:.25rem;font-size:.9rem;color:#334155}.dark .card-desc{color:#cbd5e1}
-.card-meta{margin-top:.5rem;font-size:.78rem;opacity:.8;color:#334155}.dark .card-meta{opacity:.75}
-.card-cta{margin-top:.75rem;font-size:.9rem;font-weight:600;color:var(--blue-600);text-decoration:none}
-.card-cta:hover{color:#1e40af}.dark .card-cta{color:#93c5fd}.dark .card-cta:hover{color:#bfdbfe}
+.testimonial{border-radius:1rem;padding:1.1rem;background:#0f172a;border:1px solid #1f2937}
+.testimonial blockquote{color:#e2e8f0}
+.testimonial figcaption{margin-top:.75rem;font-size:.8rem;opacity:.8;color:#cbd5e1}
 
-.price-row{
-  display:flex;align-items:center;justify-content:space-between;gap:1rem;
-  padding:.6rem .8rem;border-radius:.7rem;background:#eef2f7;
-  border:1px dashed rgba(2,6,23,.18)
-}
-.dark .price-row{background:rgba(30,41,59,.5);border-color:#334155}
+.label{display:block;font-size:.9rem;font-weight:600;margin-bottom:.25rem;color:#e5e7eb}
+.input{width:100%;border-radius:.85rem;border:1px solid #334155;background:#0f172a;color:#f1f5f9;padding:.6rem .8rem;outline:none;transition:box-shadow .2s,border-color .2s,background .2s}
+.input::placeholder{color:#cbd5e1;opacity:.9}
+.input:focus{box-shadow:var(--ring-focus);border-color:var(--primary-500);background:#0f172a}
 
-.step,.testimonial{border-radius:1rem;padding:1.1rem;background:#ffffff;border:1px solid rgba(2,6,23,.15)}
-.dark .step,.dark .testimonial{background:#0f172a;border-color:#1f2937}
-.step-icon{width:2.5rem;height:2.5rem;display:grid;place-items:center;border-radius:.75rem;margin-bottom:.75rem;background:rgba(59,130,246,.14);color:var(--blue-600)}
-.dark .step-icon{color:#4f92ff}
-.step-title{font-weight:700;color:#0f172a}
-.step-desc{font-size:.9rem;color:#334155}.dark .step-desc{color:#cbd5e1}
-.testimonial blockquote{color:#0f172a}.dark .testimonial blockquote{color:#e2e8f0}
-.testimonial figcaption{margin-top:.75rem;font-size:.8rem;opacity:.75;color:#334155}
+.glass{backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);background:rgba(2,6,23,.45);border:1px solid rgba(255,255,255,.12)}
 
-/* Inputs */
-.label{display:block;font-size:.9rem;font-weight:600;margin-bottom:.25rem;color:#0f172a}
-.input{
-  width:100%;border-radius:.85rem;border:1px solid #94a3b8;
-  background:#ffffff;color:#0f172a;
-  padding:.6rem .8rem;outline:none;transition:box-shadow .2s,border-color .2s,background .2s
-}
-.input::placeholder{color:#94a3b8}
-.input:focus{box-shadow:var(--ring-focus);border-color:var(--blue-500);background:#fff}
-.dark .input{background:#0f172a;border-color:#334155;color:#f1f5f9}
-
-/* Glass + Hero */
-.glass{backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);background:rgba(255,255,255,.85);border:1px solid rgba(15,23,42,.12)}
-.dark .glass{background:rgba(2,6,23,.45);border-color:rgba(255,255,255,.12)}
-.hero-illustration{--pad:14px;background:linear-gradient(160deg,var(--hero-c1),var(--hero-c2));padding:var(--pad)}
-.dark .hero-illustration{background:linear-gradient(160deg,rgba(2,6,23,.75),rgba(2,6,23,.9))}
-.hero-illustration svg{display:block;border-radius:16px;width:100%;height:auto}
-
-/* Accordion (smoother) */
-.accordion{border-radius:1rem;background:#ffffff;border:1px solid rgba(2,6,23,.15)}
-.dark .accordion{background:#0f172a;border-color:#1f2937}
-.acc-btn{width:100%;text-align:left;padding:.9rem 1rem;font-weight:700;display:flex;align-items:center;justify-content:space-between;gap:1rem;border-radius:1rem;color:#0f172a}
-.acc-btn:focus{outline:none;box-shadow:0 0 0 2px rgba(59,130,246,.6)}
+.accordion{border-radius:1rem;background:#0f172a;border:1px solid #1f2937}
+.acc-btn{width:100%;text-align:left;padding:.9rem 1rem;font-weight:700;display:flex;align-items:center;justify-content:space-between;gap:1rem;border-radius:1rem;color:#e8eef5;background:rgba(148,163,184,.06)}
+.acc-btn:focus{outline:none;box-shadow:0 0 0 2px rgba(6,182,212,.55)}
 .acc-icon{width:1.25rem;height:1.25rem;transition:transform .28s cubic-bezier(.22,1,.36,1)}
-.acc-panel{height:0;overflow:hidden;opacity:0;margin:0 1rem;padding:0 .25rem 0 .25rem;font-size:.95rem;color:#334155;will-change:height,opacity}
-.dark .acc-panel{color:#cbd5e1}
+.acc-panel{height:0;overflow:hidden;opacity:0;margin:0 1rem;padding:0 .25rem 0 .25rem;font-size:.95rem;color:#cbd5e1;will-change:height,opacity}
 .accordion.is-open .acc-icon{transform:rotate(180deg)}
+.accordion.is-open .acc-btn{background:rgba(148,163,184,.14)}
 .accordion.is-open .acc-panel{opacity:1;margin-top:.55rem;padding-bottom:1rem}
 
-/* Testimonial Carousel */
+/* ===== Testimonial Carousel (FIX: width + gap aware) ===== */
 .t-viewport{overflow:hidden;position:relative}
 .t-track{display:flex;gap:1rem;will-change:transform;transition:transform .6s cubic-bezier(.22,1,.36,1);padding-bottom:.25rem}
-.t-card{flex:0 0 calc(100%/var(--vis));}
-
-.carousel-btn{
-  display:inline-flex;align-items:center;justify-content:center;width:2.25rem;height:2.25rem;
-  border:1px solid #cbd5e1;border-radius:.75rem;background:#ffffff;transition:background .2s,border-color .2s
+.t-card{
+  flex:0 0 auto;
+  /* Kartu pas dibagi dengan mengurangi total gap yang muncul di satu viewport */
+  width:calc((100% - (var(--vis) - 1) * 1rem)/var(--vis));
 }
-.carousel-btn:hover{background:#eef2ff;border-color:#94a3b8}
-.dark .carousel-btn{border-color:#334155;background:#0f172a}
-.dark .carousel-btn:hover{background:#172036}
 
-/* Toast & scrollbar */
+.carousel-btn{display:inline-flex;align-items:center;justify-content:center;width:2.25rem;height:2.25rem;border:1px solid #334155;border-radius:.75rem;background:#0f172a;transition:background .2s,border-color .2s,transform .2s}
+.carousel-btn:hover{background:#132033;border-color:#3b82f6;transform:translateY(-1px)}
+
 .toast{position:fixed;left:50%;bottom:1rem;transform:translateX(-50%);z-index:60}
-.toast-content{border-radius:.9rem;background:#0b1220;color:#fff;padding:.8rem 1rem;box-shadow:0 10px 30px rgba(0,0,0,.25);border:1px solid #1f2937}
+.toast-content{border-radius:.9rem;background:#0b1220;color:#fff;padding:.8rem 1rem;box-shadow:0 14px 38px rgba(0,0,0,.35);border:1px solid #1f2937}
 *{scrollbar-width:thin;scrollbar-color:rgba(100,116,139,.5) transparent}
 *::-webkit-scrollbar{width:10px;height:10px}
 *::-webkit-scrollbar-thumb{background:rgba(100,116,139,.5);border-radius:9999px}
@@ -124,35 +76,8 @@
   .t-track{transition:none}
 }
 
-/* --- HAPUS: blok khusus light mode sebelumnya
-   (html:not(.dark) body {...} dan sejenisnya) --- */
+.icon-link{color:#94a3b8}
+.icon-link:hover{color:#e2e8f0}
 
-/* ===========================
-   DARK – FAQ contrast fix
-   =========================== */
-.dark #faq h2{color:#f8fafc;} /* judul FAQ lebih terang */
-.dark .accordion{border-color:#334155;} /* perjelas border */
-.dark .acc-btn{
-  color:#e8eef5;                          /* teks lebih kontras */
-  background:rgba(148,163,184,.06);       /* latar halus agar tidak “nyaru” */
-}
-.dark .acc-btn:hover{background:rgba(148,163,184,.12);}
-.dark .accordion.is-open .acc-btn{background:rgba(148,163,184,.14);}
-.dark .acc-btn:focus{
-  outline:none;
-  box-shadow:0 0 0 2px rgba(59,130,246,.55); /* fokus keyboard jelas */
-}
-
-/* ===========================
-   DARK – form readability fix
-   =========================== */
-.dark .label{color:#e5e7eb;}               /* label lebih terang */
-.dark .input{color:#f8fafc;}               /* teks yang diketik (memastikan kontras) */
-.dark .input::placeholder{
-  color:#cbd5e1;                           /* placeholder terbaca */
-  opacity:.9;
-}
-.dark #hpHint{
-  color:#cbd5e1;                           /* hint di bawah input */
-  opacity:.85;
-}
+/* DEAD CODE REMOVAL:
+   - Tetap bersih; tidak ada selector yatim. */

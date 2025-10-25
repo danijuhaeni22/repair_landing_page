@@ -33,17 +33,16 @@
     });
   });
 
-  // ===== FAQ Accordion — versi halus (tanpa patah)
+  // ===== FAQ Accordion — smooth
   const accs = $$(".accordion");
   accs.forEach((wrap) => {
     const btn = $(".acc-btn", wrap);
     const panel = $(".acc-panel", wrap);
 
-    // state
     let isOpen = false;
     let anim; // keep last animation
 
-    // baseline styles agar stabil
+    // baseline styles
     panel.style.overflow = "hidden";
     panel.style.height = "0px";
     panel.style.opacity = "0";
@@ -55,14 +54,12 @@
       btn.setAttribute("aria-expanded", "true");
       wrap.classList.add("is-open");
 
-      // tampilkan lalu animasikan dari 0 -> target
       panel.style.display = "block";
       panel.style.willChange = "height,opacity";
       panel.style.height = "0px";
       panel.style.opacity = "0";
 
-      // reflow kecil supaya height 0 terkunci
-      // eslint-disable-next-line no-unused-expressions
+      // reflow
       panel.offsetHeight;
 
       const target = panel.scrollHeight;
@@ -84,14 +81,12 @@
       btn.setAttribute("aria-expanded", "false");
       wrap.classList.remove("is-open");
 
-      // set height sekarang (auto -> px) lalu animasikan ke 0
-      const current = panel.offsetHeight; // tinggi aktual
+      const current = panel.offsetHeight;
       panel.style.height = current + "px";
       panel.style.opacity = "1";
       panel.style.willChange = "height,opacity";
 
-      // reflow untuk kunci nilai awal
-      // eslint-disable-next-line no-unused-expressions
+      // reflow
       panel.offsetHeight;
 
       anim?.cancel();
@@ -113,7 +108,7 @@
     });
   });
 
-  // ===== Contact form validation (required + HP/WA 11–13 digit)
+  // ===== Contact form validation
   const form = $("#contactForm");
   const toast = $("#toast");
   const toastContent = $("#toastContent");
@@ -130,21 +125,14 @@
   };
 
   if (form) {
-    const fields = {
-      nama: $("#nama"),
-      hp: $("#hp"),
-      tipe: $("#tipe"),
-      masalah: $("#masalah"),
-    };
+    const fields = { nama: $("#nama"), hp: $("#hp"), tipe: $("#tipe"), masalah: $("#masalah") };
 
-    // keep only digits & cap at 13
     fields.hp.addEventListener("input", () => {
       const digits = fields.hp.value.replace(/\D/g, "").slice(0, 13);
       fields.hp.value = digits;
       markValidity(fields.hp, /^\d{11,13}$/.test(digits));
     });
 
-    // live validity for all fields
     Object.values(fields).forEach((el) => {
       el.addEventListener("input", () => markValidity(el, isValid(el)));
       el.addEventListener("blur", () => markValidity(el, isValid(el)));
@@ -167,12 +155,16 @@
         return;
       }
 
-      const pesan =
-        `Halo FixRight, saya ${fields.nama.value}.%0A` +
-        `HP/WA: ${fields.hp.value}%0A` +
-        `Perangkat: ${fields.tipe.value}%0A` +
+      // === WHATSAPP MESSAGE FORMAT (UPDATED to 3 lines) ===
+      // Halo FixRight, saya nama.
+      // Perangkat: 13123
+      // Masalah: tes
+      const pesanText =
+        `Halo FixRight, saya ${fields.nama.value}.\n` +
+        `Perangkat: ${fields.tipe.value}\n` +
         `Masalah: ${fields.masalah.value}`;
-      const url = `https://wa.me/62812000000000?text=${pesan}`;
+
+      const url = `https://wa.me/628974163843?text=${encodeURIComponent(pesanText)}`;
       window.open(url, "_blank", "noopener");
       showToast("Pesan WhatsApp disiapkan ✅");
       form.reset();
@@ -182,16 +174,10 @@
       if (el === fields.hp) return /^\d{11,13}$/.test(el.value);
       return el.value.trim().length > 0;
     }
-
     function markValidity(el, ok) {
       const bad = ["ring-2", "ring-red-500", "border-red-500", "focus:ring-red-500"];
-      if (ok) {
-        bad.forEach((c) => el.classList.remove(c));
-        el.setAttribute("aria-invalid", "false");
-      } else {
-        bad.forEach((c) => el.classList.add(c));
-        el.setAttribute("aria-invalid", "true");
-      }
+      if (ok) { bad.forEach((c) => el.classList.remove(c)); el.setAttribute("aria-invalid", "false"); }
+      else { bad.forEach((c) => el.classList.add(c)); el.setAttribute("aria-invalid", "true"); }
     }
   }
 
@@ -199,19 +185,31 @@
   const yearEl = $("#year");
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-  // Testimonial Carousel
+  // ===== Testimonial Carousel (FIX: gap-aware pixel translate)
   const viewport = $(".t-viewport");
   const track = $(".t-track", viewport || document);
   if (viewport && track) {
     const cards = $$(".t-card", track);
     let index = 0;
     let vis = 3;
+    let stepPx = 0;
+
+    const computeStep = () => {
+      // Lebar satu kartu + gap aktual di track
+      const gap = parseFloat(getComputedStyle(track).gap || "16"); // fallback 16px
+      const cardW = cards[0]?.getBoundingClientRect().width || 0;
+      stepPx = cardW + gap;
+    };
 
     const setVisibility = () => {
       const w = window.innerWidth;
       vis = w >= 1024 ? 3 : w >= 640 ? 2 : 1;
       viewport.style.setProperty("--vis", vis);
-      track.style.transform = `translateX(${-index * (100 / vis)}%)`;
+      // Recompute step setelah layout settle
+      requestAnimationFrame(() => {
+        computeStep();
+        track.style.transform = `translateX(${-index * stepPx}px)`;
+      });
     };
 
     const go = (dir = 1) => {
@@ -219,7 +217,9 @@
       const maxIndex = Math.max(0, cards.length - vis);
       if (index > maxIndex) index = 0;
       if (index < 0) index = maxIndex;
-      track.style.transform = `translateX(${-index * (100 / vis)}%)`;
+      // pastikan step terbaru (misal setelah resize)
+      computeStep();
+      track.style.transform = `translateX(${-index * stepPx}px)`;
     };
 
     setVisibility();
